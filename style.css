@@ -1,0 +1,12 @@
+#container {
+    width: 60vh;
+    height: 60vh;
+    background-color: aquamarine;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.game-square {
+    border: 2px solid black;
+}
