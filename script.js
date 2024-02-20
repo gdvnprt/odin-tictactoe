@@ -5,11 +5,21 @@ function createGameSquare(a) {
     return { squareNumber, marker };
 };
 
+function createPlayer(name, marker) {
+    const name = name;
+    const mark = marker;
+    return { name, mark };
+};
+
+const player1 = createPlayer(n, 'X');
+const player2 = createPlayer(n, 'O');
+
 function gameBoard() {
     let board = [];
     for (let i = 1; i < 10; i++) {
         board.push(createGameSquare(i));
     };
+
     const markX = (a) => board[a].marker = 'X';
     const markO = (b) => board[b].marker = 'O';
 
@@ -27,22 +37,21 @@ function gameBoard() {
     };
 
     const checkTie = function() {
-        
-    }
+        if ((board[0].marker == 'X' || 'O') ||
+            (board[1].marker == 'X' || 'O') ||
+            (board[2].marker == 'X' || 'O') ||
+            (board[3].marker == 'X' || 'O') ||
+            (board[4].marker == 'X' || 'O') ||
+            (board[5].marker == 'X' || 'O') ||
+            (board[6].marker == 'X' || 'O') ||
+            (board[7].marker == 'X' || 'O') ||
+            (board[8].marker == 'X' || 'O')) {
+                return 'Tie Game'
+            };
+    };
 
-    return { board, markX, markO, checkWinner };
+    return { board, markX, markO, checkWinner, checkTie };
 };
-
-// build two player objects with names and a marker X or O
-
-function createPlayer(name, marker) {
-    const name = name;
-    const marker = marker;
-    return { name, marker };
-};
-
-const player1 = createPlayer(n, 'X');
-const player2 = createPlayer(n, 'O')
 
 
 // if all squares fill with markers and there is no winner, report a tie
