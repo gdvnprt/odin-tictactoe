@@ -15,6 +15,15 @@ function gameBoard() {
         board.push(createGameSquare());
     };
 
+    let turn = player1
+    const nextTurn = function() {
+        if (turn = player1) {
+            turn = player2;
+        } else {
+            turn = player1;
+        };
+    };
+
     const markSquare = (a, player) => board[a].marker = player.mark;
 
     const checkWinner = function(player) {
@@ -42,7 +51,7 @@ function gameBoard() {
             };
     };
 
-    return { board, markSquare, checkWinner };
+    return { board, turn, nextTurn, markSquare, checkWinner };
 };
 
 // establish way to determine which player's turn it is
