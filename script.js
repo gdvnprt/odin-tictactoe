@@ -56,11 +56,12 @@ function gameBoard() {
 
 // GUI functions below
 
-let container = document.querySelector('#container');
+const container = document.querySelector('#container');
 function buildGameBoard() {
     for (let i = 0; i < 9; i++) {
-        let gameSquare = container.createElement('button');
+        let gameSquare = document.createElement('button');
         gameSquare.classList.add('game-square');
+        container.appendChild(gameSquare);
         gameSquare.addEventListener('click', () => {
             game.markSquare(i, game.turn);
             gameSquare.innerHTML = game.turn.mark;
