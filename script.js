@@ -19,8 +19,7 @@ function gameBoard() {
     const player1 = (n) => createPlayer(n, 'X');
     const player2 = (n) => createPlayer(n, '0');
 
-    const markX = (a) => board[a].marker = 'X';
-    const markO = (a) => board[a].marker = 'O';
+    const markSquare = (a, player) => board[a].marker = player.mark;
 
     const checkWinner = function(player) {
         if ((board[0].marker == board[1].marker == board[2].marker == player.mark) ||
@@ -32,24 +31,20 @@ function gameBoard() {
             (board[0].marker == board[4].marker == board[8].marker == player.mark) ||
             (board[2].marker == board[4].marker == board[6].marker == player.mark)) {
                 return player + ' is the winner!'
-            };
-    };
-
-    const checkTie = function() {
-        if ((board[0].marker == 'X' || 'O') &&
-            (board[1].marker == 'X' || 'O') &&
-            (board[2].marker == 'X' || 'O') &&
-            (board[3].marker == 'X' || 'O') &&
-            (board[4].marker == 'X' || 'O') &&
-            (board[5].marker == 'X' || 'O') &&
-            (board[6].marker == 'X' || 'O') &&
-            (board[7].marker == 'X' || 'O') &&
-            (board[8].marker == 'X' || 'O')) {
+            } else if ((board[0].marker == 'X' || 'O') &&
+                        (board[1].marker == 'X' || 'O') &&
+                        (board[2].marker == 'X' || 'O') &&
+                        (board[3].marker == 'X' || 'O') &&
+                        (board[4].marker == 'X' || 'O') &&
+                        (board[5].marker == 'X' || 'O') &&
+                        (board[6].marker == 'X' || 'O') &&
+                        (board[7].marker == 'X' || 'O') &&
+                        (board[8].marker == 'X' || 'O')) {
                 return 'Tie Game'
             };
     };
 
-    return { board, player1, player2, markX, markO, checkWinner, checkTie };
+    return { board, player1, player2, markSquare, checkWinner };
 };
 
 
