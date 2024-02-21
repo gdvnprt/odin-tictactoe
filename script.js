@@ -16,13 +16,6 @@ function gameBoard() {
     };
 
     let turn = player1
-    const nextTurn = function() {
-        if (turn = player1) {
-            turn = player2;
-        } else {
-            turn = player1;
-        };
-    };
 
     const markSquare = (a, player) => board[a].marker = player.mark;
 
@@ -51,7 +44,7 @@ function gameBoard() {
             };
     };
 
-    return { board, turn, nextTurn, markSquare, checkWinner };
+    return { board, turn, markSquare, checkWinner };
 };
 
 // GUI functions below
@@ -67,7 +60,11 @@ function buildGameBoard() {
             gameSquare.innerHTML = game.turn.mark;
             gameSquare.replaceWith(gameSquare.cloneNode(true));
             if (game.checkWinner(game.turn) === 'Continue') {
-                game.nextTurn;
+                if (game.turn.mark === 'X') {
+                    game.turn = player2;
+                } else {
+                    game.turn = player1;
+                };
             } else if (game.checkWinner(game.turn) === 'Tie Game') {
                 //display tie game placeholder
                 alert('Tie Game')
