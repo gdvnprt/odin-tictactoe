@@ -56,19 +56,15 @@ function gameBoard() {
 
 // GUI functions below
 
-let player1 = createPlayer('Player 1', 'X');
-let player2 = createPlayer('Player 2', 'O');
-
-let game = gameBoard();
-
-let gameSquare = document.querySelectorAll('.game-square');
+let container = document.querySelector('#container');
 function buildGameBoard() {
     for (let i = 0; i < 9; i++) {
-        gameSquare[i].replaceWith(gameSquare[i].cloneNode(true))
-        gameSquare[i].addEventListener('click', () => {
+        let gameSquare = container.createElement('button');
+        gameSquare.classList.add('game-square');
+        gameSquare.addEventListener('click', () => {
             game.markSquare(i, game.turn);
-            gameSquare[i].replaceWith(gameSquare[i].cloneNode(true))
-            gameSquare[i].innerHTML = game.turn.mark;
+            gameSquare.innerHTML = game.turn.mark;
+            gameSquare.replaceWith(gameSquare.cloneNode(true));
             if (game.checkWinner(game.turn) === 'Continue') {
                 game.nextTurn;
             } else if (game.checkWinner(game.turn) === 'Tie Game') {
@@ -84,9 +80,23 @@ function buildGameBoard() {
     };
 };
 
+function clearGameBoard() {
+    while (container.firstChild) {
+        container.removeChild(container.firstChild);
+    };
+};
+
+let player1 = createPlayer('Player 1', 'X');
+let player2 = createPlayer('Player 2', 'O');
+
+let game = gameBoard();
+buildGameBoard();
+
+
 let newGame = document.querySelector('#new-game');
 newGame.addEventListener('click', () => {
     game = '';
     game = gameBoard();
+    clearGameBoard();
     buildGameBoard();
 });

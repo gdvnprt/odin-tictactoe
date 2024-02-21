@@ -45,4 +45,6 @@
 
 .game-square {
     border: 2px solid black;
+    width: 20vh;
+    height: 20vh;
 }
