@@ -1,6 +1,6 @@
 // build a gameboard array with 9 squares and the overall game state
 function createGameSquare() {
-    let marker;
+    let marker = '';
     return { marker };
 };
 
@@ -16,9 +16,6 @@ function gameBoard() {
         board.push(createGameSquare());
     };
 
-    const player1 = (x) => createPlayer(x, 'X');
-    const player2 = (o) => createPlayer(o, '0');
-
     const markSquare = (a, player) => board[a].marker = player.mark;
 
     const checkWinner = function(player) {
@@ -30,7 +27,7 @@ function gameBoard() {
             (board[2].marker == board[5].marker == board[8].marker == player.mark) ||
             (board[0].marker == board[4].marker == board[8].marker == player.mark) ||
             (board[2].marker == board[4].marker == board[6].marker == player.mark)) {
-                return player + ' is the winner!'
+                return player.name + ' is the winner!'
             } else if ((board[0].marker == 'X' || 'O') &&
                         (board[1].marker == 'X' || 'O') &&
                         (board[2].marker == 'X' || 'O') &&
