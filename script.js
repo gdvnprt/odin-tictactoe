@@ -4,9 +4,9 @@ function createGameSquare() {
     return { marker };
 };
 
-function createPlayer(name, marker) {
-    const name = name;
-    const mark = marker;
+function createPlayer(n, m) {
+    const name = n;
+    const mark = m;
     return { name, mark };
 };
 
@@ -16,8 +16,8 @@ function gameBoard() {
         board.push(createGameSquare());
     };
 
-    const player1 = (n) => createPlayer(n, 'X');
-    const player2 = (n) => createPlayer(n, '0');
+    const player1 = (x) => createPlayer(x, 'X');
+    const player2 = (o) => createPlayer(o, '0');
 
     const markSquare = (a, player) => board[a].marker = player.mark;
 
