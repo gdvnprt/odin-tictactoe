@@ -98,3 +98,13 @@ newGame.addEventListener('click', () => {
     clearGameBoard();
     buildGameBoard();
 });
+
+let changePlayer1Name = document.querySelector('#change-player-one');
+changePlayer1Name.addEventListener('click', () => {
+    player1.name = prompt("Your name?", "Player 1");
+});
+
+let changePlayer2Name = document.querySelector('#change-player-two');
+changePlayer2Name.addEventListener('click', () => {
+    player2.name = prompt("Your name?", "Player 2");
+});
