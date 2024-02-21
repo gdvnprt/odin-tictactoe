@@ -1,5 +1,5 @@
 // build a gameboard array with 9 squares and the overall game state
-function createGameSquare(a) {
+function createGameSquare() {
     let marker;
     return { marker };
 };
@@ -12,8 +12,8 @@ function createPlayer(name, marker) {
 
 function gameBoard() {
     let board = [];
-    for (let i = 1; i < 10; i++) {
-        board.push(createGameSquare(i));
+    for (let i = 0; i < 9; i++) {
+        board.push(createGameSquare());
     };
 
     const player1 = (n) => createPlayer(n, 'X');
