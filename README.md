@@ -9,7 +9,7 @@ You’re going to store the gameboard as an array inside of a Gameboard object, 
     
     In this project, think carefully about where each bit of logic should reside. Each little piece of functionality should be able to fit in the game, player or gameboard objects. Take care to put them in “logical” places. Spending a little time brainstorming here can make your life much easier later!
     
-    If you’re having trouble, Building a house from the inside out is a great article that lays out a highly applicable example both of how you might approach tackling this project as well as how you might organize and structure your code.
+    If you’re having trouble, Building a house from the inside out [https://www.ayweb.dev/blog/building-a-house-from-the-inside-out] is a great article that lays out a highly applicable example both of how you might approach tackling this project as well as how you might organize and structure your code.
 
 
 Focus on getting a working game in the console first. Make sure you include logic that checks for when the game is over! You should be checking for all winning 3-in-a-rows and ties. Try to avoid thinking about the DOM and your HTML/CSS until your game is working.
