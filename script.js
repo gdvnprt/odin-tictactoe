@@ -54,22 +54,39 @@ function gameBoard() {
     return { board, turn, nextTurn, markSquare, checkWinner };
 };
 
-// establish way to determine which player's turn it is
-
 // GUI functions below
 
+let player1 = createPlayer('Player 1', 'X');
+let player2 = createPlayer('Player 2', 'O');
+
 let game = gameBoard();
+
+let gameSquare = document.querySelectorAll('.game-square');
+function buildGameBoard() {
+    for (let i = 0; i < 9; i++) {
+        gameSquare[i].replaceWith(gameSquare[i].cloneNode(true))
+        gameSquare[i].addEventListener('click', () => {
+            game.markSquare(i, game.turn);
+            gameSquare[i].replaceWith(gameSquare[i].cloneNode(true))
+            gameSquare[i].innerHTML = game.turn.mark;
+            if (game.checkWinner(game.turn) === 'Continue') {
+                game.nextTurn;
+            } else if (game.checkWinner(game.turn) === 'Tie Game') {
+                //display tie game placeholder
+                alert('Tie Game')
+                // "play again" button
+            } else {
+                //display winner placeholder
+                alert(game.turn.name + ' is the winner!')
+                // "play again" button
+            };
+        });
+    };
+};
 
 let newGame = document.querySelector('#new-game');
 newGame.addEventListener('click', () => {
     game = '';
     game = gameBoard();
+    buildGameBoard();
 });
-
-let gameSquare = document.querySelectorAll('.game-square');
-for (let i = 0; i < 9; i++) {
-    gamesquare[i].addEventListener('click', () =>{
-        game.markSquare(i, playerTurn);
-        game.checkWinner;
-    });
-};
