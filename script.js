@@ -45,6 +45,22 @@ function gameBoard() {
     return { board, markSquare, checkWinner };
 };
 
+// establish way to determine which player's turn it is
 
-// reset the board with a command
-// change player names with a command
+// GUI functions below
+
+let game = gameBoard();
+
+let newGame = document.querySelector('#new-game');
+newGame.addEventListener('click', () => {
+    game = '';
+    game = gameBoard();
+});
+
+let gameSquare = document.querySelectorAll('.game-square');
+for (let i = 0; i < 9; i++) {
+    gamesquare[i].addEventListener('click', () =>{
+        game.markSquare(i, playerTurn);
+        game.checkWinner;
+    });
+};
