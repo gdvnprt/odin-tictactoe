@@ -1,3 +1,39 @@
+#title {
+    width: 60vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-header {
+    width: 60vh;
+    height: 20vh;
+    margin-bottom: 3vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#player-one {
+    flex: 3;
+}
+
+#new-game {
+    flex: 1;
+}
+
+#player-two {
+    flex: 3;
+}
+
+#player-one, #player-two {
+    height: 20vh;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    grid-template-rows: 3fr 1fr 1fr;
+}
+
 #container {
     width: 60vh;
     height: 60vh;
