@@ -91,7 +91,7 @@ let game = gameBoard();
 buildGameBoard();
 
 
-let newGame = document.querySelector('#new-game');
+const newGame = document.querySelector('#new-game');
 newGame.addEventListener('click', () => {
     game = '';
     game = gameBoard();
@@ -99,12 +99,16 @@ newGame.addEventListener('click', () => {
     buildGameBoard();
 });
 
-let changePlayer1Name = document.querySelector('#change-player-one');
+const changePlayer1Name = document.querySelector('#change-player-one');
+const displayP1 = document.querySelector('#player-one-name');
 changePlayer1Name.addEventListener('click', () => {
     player1.name = prompt("Your name?", "Player 1");
+    displayP1.innerHTML = player1.name;
 });
 
-let changePlayer2Name = document.querySelector('#change-player-two');
+const changePlayer2Name = document.querySelector('#change-player-two');
+const displayP2 = document.querySelector('#player-two-name');
 changePlayer2Name.addEventListener('click', () => {
     player2.name = prompt("Your name?", "Player 2");
+    displayP2.innerHTML = player2.name;
 });
