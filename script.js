@@ -46,6 +46,17 @@ function gameBoard() {
 
 // GUI functions below
 
+const turnName = document.querySelector('#player-turn');
+const turnArrow = document.querySelector('#turn-arrow');
+function displayTurn() {
+    turnName.innerHTML = game.turn.name + "'s turn.";
+    if (game.turn.mark === 'X') {
+        turnArrow.innerHTML = '&#8592;';
+    } else {
+        turnArrow.innerHTML = '&#8594;';
+    };
+};
+
 const container = document.querySelector('#container');
 function buildGameBoard() {
     for (let i = 0; i < 9; i++) {
@@ -62,6 +73,7 @@ function buildGameBoard() {
                 } else {
                     game.turn = player1;
                 };
+                displayTurn();
             } else if (game.checkWinner(game.turn) === 'Tie Game') {
                 //display tie game placeholder
                 alert('Tie Game')
@@ -86,6 +98,7 @@ let player2 = createPlayer('Player 2', 'O');
 
 let game = gameBoard();
 buildGameBoard();
+displayTurn();
 
 
 const newGame = document.querySelector('#new-game');
@@ -94,6 +107,7 @@ newGame.addEventListener('click', () => {
     game = gameBoard();
     clearGameBoard();
     buildGameBoard();
+    displayTurn();
 });
 
 const changePlayer1Name = document.querySelector('#change-player-one');
@@ -101,6 +115,7 @@ const displayP1 = document.querySelector('#player-one-name');
 changePlayer1Name.addEventListener('click', () => {
     player1.name = prompt("Your name?", "Player 1");
     displayP1.innerHTML = player1.name;
+    displayTurn();
 });
 
 const changePlayer2Name = document.querySelector('#change-player-two');
@@ -108,4 +123,5 @@ const displayP2 = document.querySelector('#player-two-name');
 changePlayer2Name.addEventListener('click', () => {
     player2.name = prompt("Your name?", "Player 2");
     displayP2.innerHTML = player2.name;
+    displayTurn();
 });
