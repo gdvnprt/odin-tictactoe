@@ -19,6 +19,11 @@ function gameBoard() {
 
     const markSquare = (a, player) => board[a].marker = player.mark;
 
+    const squareFilled = function(square) {
+        return square.marker === 'X' ||
+                square.marker === 'O';
+    };
+
     const checkWinner = function(player) {
         if ((board[0].marker === board[1].marker && board[1].marker === board[2].marker && board[2].marker === player.mark) ||
             (board[3].marker === board[4].marker && board[4].marker === board[5].marker && board[5].marker === player.mark) ||
@@ -29,22 +34,14 @@ function gameBoard() {
             (board[0].marker === board[4].marker && board[4].marker === board[8].marker && board[8].marker === player.mark) ||
             (board[2].marker === board[4].marker && board[4].marker === board[6].marker && board[6].marker === player.mark)) {
                 return player.name + ' is the winner!';
-            } else if ((board[0].marker === 'X' || board[0].marker === 'O') &&
-                        (board[1].marker === 'X' || board[1].marker === 'O') &&
-                        (board[2].marker === 'X' || board[2].marker === 'O') &&
-                        (board[3].marker === 'X' || board[3].marker === 'O') &&
-                        (board[4].marker === 'X' || board[4].marker === 'O') &&
-                        (board[5].marker === 'X' || board[5].marker === 'O') &&
-                        (board[6].marker === 'X' || board[6].marker === 'O') &&
-                        (board[7].marker === 'X' || board[7].marker === 'O') &&
-                        (board[8].marker === 'X' || board[8].marker === 'O')) {
+            } else if (board.every(squareFilled)) {
                 return 'Tie Game';
             } else {
                 return 'Continue'
             };
     };
 
-    return { board, turn, markSquare, checkWinner };
+    return { board, turn, markSquare, squareFilled, checkWinner };
 };
 
 // GUI functions below
