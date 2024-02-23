@@ -1,3 +1,10 @@
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
 #title {
     width: 60vh;
     display: flex;
@@ -14,25 +21,58 @@
     align-items: center;
 }
 
-#player-one {
-    flex: 3;
-}
-
-#new-game-div {
-    flex: 1;
-}
-
-#player-two {
-    flex: 3;
-}
-
 #player-one, #player-two {
+    flex: 3;
     height: 20vh;
-    display: grid;
-    justify-content: center;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    grid-template-rows: 3fr 1fr 1fr;
+    justify-content: center;
+    gap: 0;
+    padding: 0;
 }
+
+.marker {
+    font-size: 6rem;
+    font-weight: bold;
+    padding: 0;
+    margin: 0;
+}
+
+#header-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#turn-display {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+#player-turn {
+    text-align: center;
+}
+
+#turn-arrow {
+    margin: 0;
+    font-weight: bold;
+    font-size: 3rem;
+    position: relative;
+    bottom: 1vh;
+}
+
+#new-game {
+    position: relative;
+    top: 1vh;
+}
+
 
 #container {
     width: 60vh;
@@ -47,4 +87,22 @@
     border: 2px solid black;
     width: 20vh;
     height: 20vh;
+    font-weight: bold;
+    font-size: 8rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#game-result {
+    position: relative;
+    bottom: 75vh;
+    width: 40vh;
+}
+
+#result-div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }

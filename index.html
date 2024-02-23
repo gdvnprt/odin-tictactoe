@@ -13,21 +13,21 @@
     </div>
     <div id="game-header">
         <div id="player-one">
-            <h2 class="marker">X</h2>
+            <p class="marker">X</p>
             <p id="player-one-name">Player 1</p>
-            <button id="change-player-one">Change Name</button>
+            <button id="change-player-one" class="change-name">Change Name</button>
         </div>
         <div id="header-center">
             <div id="turn-display">
                 <h3 id="player-turn"></h3>
                 <h3 id="turn-arrow"></h3>
             </div>
-            <button id="new-game">New Game</button>
+            <button id="new-game" class="reset-game">New Game</button>
         </div>
         <div id="player-two">
-            <h2 class="marker">O</h2>
+            <p class="marker">O</p>
             <p id="player-two-name">Player 2</p>
-            <button id="change-player-two">Change Name</button>
+            <button id="change-player-two" class="change-name">Change Name</button>
         </div>
     </div>
 
@@ -35,8 +35,10 @@
     </div>
 
     <dialog id="game-result">
-        <h2 id="result-text"></h2>
-        <button id="play-again">Play Again?</button>
+        <div id="result-div">
+            <h2 id="result-text"></h2>
+            <button id="play-again" class="reset-game">Play Again?</button>
+        </div>
     </dialog>
 </body>
 </html>
