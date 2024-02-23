@@ -57,6 +57,13 @@ function displayTurn() {
     };
 };
 
+const resultDialog = document.querySelector('#game-result');
+function gameResult(result) {
+    resultDialog.open = true;
+    const resultText = document.querySelector('#result-text');
+    resultText.innerHTML = result;
+};
+
 const container = document.querySelector('#container');
 function buildGameBoard() {
     for (let i = 0; i < 9; i++) {
@@ -75,13 +82,9 @@ function buildGameBoard() {
                 };
                 displayTurn();
             } else if (game.checkWinner(game.turn) === 'Tie Game') {
-                //display tie game placeholder
-                alert('Tie Game')
-                // "play again" button
+                gameResult('Tie Game');
             } else {
-                //display winner placeholder
-                alert(game.turn.name + ' is the winner!')
-                // "play again" button
+                gameResult(game.turn.name + ' is the winner!');
             };
         });
     };
@@ -103,6 +106,16 @@ displayTurn();
 
 const newGame = document.querySelector('#new-game');
 newGame.addEventListener('click', () => {
+    game = '';
+    game = gameBoard();
+    clearGameBoard();
+    buildGameBoard();
+    displayTurn();
+});
+
+const playAgain = document.querySelector('#play-again');
+playAgain.addEventListener('click', () => {
+    resultDialog.open = false;
     game = '';
     game = gameBoard();
     clearGameBoard();
