@@ -62,6 +62,10 @@ function gameResult(result) {
     resultDialog.open = true;
     const resultText = document.querySelector('#result-text');
     resultText.innerHTML = result;
+    for (let i = 0; i < 9; i++) {
+        let gameSquare = document.querySelectorAll('.game-square');
+        gameSquare[i].replaceWith(gameSquare[i].cloneNode(true));
+    };
 };
 
 const container = document.querySelector('#container');
